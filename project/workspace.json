@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "app-redux-saga": "apps/app-redux-saga",
+    "app-redux-saga-e2e": "apps/app-redux-saga-e2e",
     "app-redux-thunk": "apps/app-redux-thunk",
     "app-redux-thunk-e2e": "apps/app-redux-thunk-e2e"
   }
