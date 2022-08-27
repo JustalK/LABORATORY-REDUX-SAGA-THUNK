@@ -17,3 +17,16 @@ Redux Thunk does not have a queue and does not pause his execution. Because of t
 4- The counter goes to -1
 
 The counter at the moment of decrementing took in account, the value of the state the moment I pressed the decrement button. At this moment, the value was 0. It did not care about the incrementation at all.
+
+## System
+
+Ubuntu Version: Ubuntu 20.04.1 LTS
+Node Version: v16.15.1
+
+```bash
+# Get the version of node
+$ node -v
+
+# Get the latest version of ubuntu
+$ lsb_release -a
+```
