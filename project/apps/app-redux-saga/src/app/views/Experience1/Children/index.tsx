@@ -12,6 +12,7 @@ export function Experience1() {
 
   return (
     <div>
+      {count === 3 && <div>You win, the counter reached 3.</div>}
       <div>
         <button onClick={() => dispatch(increment())}>Increment</button>
         <button onClick={() => dispatch(decrement())}>Decrease</button>

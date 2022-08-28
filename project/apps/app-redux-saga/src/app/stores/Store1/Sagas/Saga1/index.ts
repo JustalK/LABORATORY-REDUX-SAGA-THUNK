@@ -12,7 +12,7 @@ export function* incrementAsync() {
 }
 
 export function* decrementAsync() {
-  yield delay(1000);
+  yield delay(5000);
   yield put(decrement());
 }
 
