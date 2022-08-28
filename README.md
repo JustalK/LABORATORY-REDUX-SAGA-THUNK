@@ -92,6 +92,14 @@ This experience is the same as the experience 3 in React-Thunk. The problem stil
 
 Using the channels, the calls are now being played in the right order independently from the time for the request to be handle. The UI has not be block during the experience which mean I can still use the other button and the counter will be perfectly updated.
 
+## Running
+
+For starting the two projects at the same time:
+
+```bash
+$ nx run-many --target=serve --projects=app-redux-thunk,app-redux-saga
+```
+
 ## System
 
 Ubuntu Version: Ubuntu 20.04.1 LTS
