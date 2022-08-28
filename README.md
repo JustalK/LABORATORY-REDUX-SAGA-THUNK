@@ -1,8 +1,34 @@
 # LABORATORY-REDUX-SAGA-THUNK
 
-## Experience
+This laboratory is an experiment of **Redux-Saga** in comparison with **Redux-Thunk** in two **React** applications. Both are used to enhance the functionnalities of Redux by allowing the use of asynchronous actions.
 
-**Redux Thunk**
+The goal of this laboratory was to show the limit of Redux-Thunk when orchestration are needed between two events such as the incrementation and decrementation of a counter with concurrency.
+
+## Redux
+
+![./documentation/redux.png](./documentation/redux.png)
+
+When we want to pass information from one component to another component, we dont have a lot choice. Either we can rely on the context Api of react or either we pass the information through props.
+
+When the number of component involve is relatively low and when the components are close in the tree, we generally pass the information using the props.
+
+In the other case, we rely on context API. This is simple to put in place. But even this feature have limit. If the number of refresh/update is high, context start to be overload. On top of that, the organization of the code with context can get pretty messy quickly.
+
+In those cases, we generally use a Redux Store where we will store our data and will pull them in our application. Action will be use to modify the information in the Store.
+
+## Redux-Thunk
+
+### Theory
+
+![./documentation/thunk.gif](./documentation/thunk.gif)
+
+The principle of Redux-Thunk is quite simple from the schema above.
+
+When the user click on a button on the app, an event is trigger and sent to out middlware by the dispatcher. Once received, the request is sent to the api and till we wait for the completion before going further. Once the call is done, the final update is sent to the store with the actual value inside. And finally the front is updated with the new state.
+
+One of the problem of this schema is when multiple event arrive and the time of response from the api are different for each event. In those case, we have a race problem between our events. See the experiences for more information.
+
+### Experiences
 
 #### Experience 1
 
@@ -44,11 +70,27 @@ Experience3 is how tricky event can be. In this example, a message appears if th
 
 The only solution is really to create a queue in react-redux.
 
-**Redux Saga**
+## Redux-Saga
+
+### Theory
+
+![./documentation/saga.png](./documentation/saga.png)
+
+Redux-Saga is close to Redux-Thunk but the management of the saga with generator function modify completely how the request are handle.
+
+Once the action with the payload reaches the middleware. The request is sent to the channel. If multiple are sent, they will be stack there. One saga will be handle when discovered by the watchers. The next yield will be started, the call or whatever the saga does will be handle in our worker. Worker can be synchronous or asynchronous. It give us a lot of control over how to manage the saga between them. Once the result is found, it sent back to our middleware that will dispatch the result to our store for update.
+
+The rest work exactly as Redux-Thunk.
+
+#### Experiences
 
 #### Experience 1
 
-This experience is the same as the experience 3 in React-Thunk
+This experience is the same as the experience 3 in React-Thunk. The problem still persist.
+
+#### Experience 2
+
+Using the channels, the calls are now being played in the right order independently from the time for the request to be handle. The UI has not be block during the experience which mean I can still use the other button and the counter will be perfectly updated.
 
 ## System
 
