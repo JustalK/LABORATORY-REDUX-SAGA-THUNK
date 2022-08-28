@@ -4,6 +4,16 @@ This laboratory is an experiment of **Redux-Saga** in comparison with **Redux-Th
 
 The goal of this laboratory was to show the limit of Redux-Thunk when orchestration are needed between two events such as the incrementation and decrementation of a counter with concurrency.
 
+## Plan of the presentation
+
+I explain with all the details how I build the project and my way of working.
+
+1. [Redux](#redux)
+2. [Redux-Thunk](#redux-thunk)
+3. [Redux-Saga](#redux-saga)
+4. [Running](#running)
+5. [System](#system)
+
 ## Redux
 
 ![./documentation/redux.png](./documentation/redux.png)
